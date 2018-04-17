@@ -1,3 +1,3 @@
-Algorithms and Data Structures
-Stack
-Queue
+## Algorithms and Data Structures
+- Stack
+- Queue
