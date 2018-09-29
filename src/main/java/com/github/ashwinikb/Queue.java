@@ -1,22 +1,32 @@
-//package com.github.ashwinikb;
+package com.github.ashwinikb;
 
-import java.util.*;
+/**
+ * Queue implementation using Java LinkedList
+ */
 
-//public class Queue {
-//
-//    public static void main (String[] args) throws InterruptedException {
-//        int time = Integer.parseInt(args[0]);
-//        Queue<>  queue = new LinkedList<>();
+import java.util.LinkedList;
 
-//        for(int i = time; i>= 0; i--)
-//            queue.add(i);
-//
-//        while(!queue.isEmpty()) {
-//        System.out.println(queue.remove());
-//        Thread.sleep(1000);
-//
-//        }
-//    }
-//
-//
-//}
+public class Queue<E> {
+
+    private LinkedList<E> list = new LinkedList<E>();
+
+    public void enqueue(E item) {
+        list.addLast(item);
+    }
+
+    public E dequeue() {
+        return list.poll();
+    }
+
+    public boolean hasItems() {
+        return !list.isEmpty();
+    }
+
+    public int size() {
+        return list.size();
+    }
+
+    public void addItems(Queue<? extends E> q) {
+        while (q.hasItems()) list.addLast(q.dequeue());
+    }
+}
